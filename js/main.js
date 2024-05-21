@@ -90,3 +90,16 @@
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
 })(jQuery);
+
+// changing shaded circle when moving the carousel
+document.addEventListener("DOMContentLoaded", function () {
+  var carousel = $(".testimonial-carousel");
+  carousel.on("changed.owl.carousel", function (event) {
+    var currentIndex = event.item.index;
+    var indicator = $(".carousel-indicator");
+    indicator.css("background-color", "rgba(0, 0, 0, 0.5)");
+    setTimeout(function () {
+      indicator.css("background-color", "transparent");
+    }, 500);
+  });
+});
